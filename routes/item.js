@@ -124,8 +124,8 @@ function reject(auth) {
 // Load client secrets from a local file.
 var checkID;
 router.post('/check', function (req, res, next) {
-  checkID = (Object.keys(req.body));
-  console.log(checkID)
+  checkID = (req.body).fname;
+  console.log(req.body)
   res.redirect('/item');
 });
 
