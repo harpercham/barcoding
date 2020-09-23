@@ -122,12 +122,11 @@ function reject(auth) {
 
 
 // Load client secrets from a local file.
-var checkID = [];
-router.post('/check', function (req, res, next) {
-  checkID = ((Object.keys(req.body)));
-});
-
+var checkID;
 router.get('/item', function (req, res, next) {
+  router.post('/check', function (req, res, next) {
+    checkID = ((Object.keys(req.body)));
+  });
   fs.readFile('./routes/credentials.json', (err, content) => {
     if (err) return console.log('Error loading client secret file:', err);
     // Authorize a client with credentials, then call the Google Sheets API.
