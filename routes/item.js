@@ -73,50 +73,18 @@ var rows;
 function listMajors(auth) {
   const sheets = google.sheets({ version: 'v4', auth });
   sheets.spreadsheets.values.get({
-    spreadsheetId: '1UTWADG0nsKKF1R0-A_bfPdD7KlVSDyUlBhOweb7Oxy0',
-    range: ['Data!A:K']
+    spreadsheetId: '12CX-tnVCxut1ZaplzHTi5-gIeEkO5asbb4C6LKh93dg',
+    range: ['inventory!A:G']
   }, (err, res) => {
     if (err) return console.log('The API returned an error: ' + err);
     rows=[];
     for (i = 0; i < res.data.values.length; i++) {
-      if (res.data.values[i][0] == checkID) {
+      console.log(res.data.values[i][1])
+      if (res.data.values[i][1] == checkID) {
         rows = [(res.data.values[i])];
       }
     };
     console.log('rows1:' + rows)
-  });
-}
-
-function approve(auth) {
-  const sheets = google.sheets({ version: 'v4', auth });
-  let values = [['approved']];
-  let resource = {
-    values,
-  };
-  sheets.spreadsheets.values.update({
-    spreadsheetId: '1UTWADG0nsKKF1R0-A_bfPdD7KlVSDyUlBhOweb7Oxy0',
-    range: 'Data!K'.concat(i),
-    valueInputOption: 'RAW',
-    resource,
-  }, (err, res) => {
-    if (err) return console.log('The API returned an error: ' + err);
-  });
-}
-
-
-function reject(auth) {
-  const sheets = google.sheets({ version: 'v4', auth });
-  let values = [['rejected']];
-  let resource = {
-    values,
-  };
-  sheets.spreadsheets.values.update({
-    spreadsheetId: '1UTWADG0nsKKF1R0-A_bfPdD7KlVSDyUlBhOweb7Oxy0',
-    range: 'Data!K'.concat(i),
-    valueInputOption: 'RAW',
-    resource,
-  }, (err, res) => {
-    if (err) return console.log('The API returned an error: ' + err);
   });
 }
 
