@@ -1,19 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
- <% include partials/head %> 
+  <% include partials/head %>
 </head>
+
 <body>
 
-<div class="container-fluid bg-3 text-center">    
-  <h3>Item Check</h3><br>
-  <form action='/check' method='post' id="checkform">
-    <label for="fname">Barcode:</label><br>
-    <input type="text" id="fname" name="fname"><br>
-    <button type="submit">check</button>
-    <a onclick="window.open('http://gcesg.myqnapcloud.com/WordPress/items-order/')">Full Item List</a>
-  </form>
+  <div class="container-fluid bg-3 text-center">
+    <h3>Item Check</h3><br>
+    <form action='/check' method='post' id="checkform">
+      <label for="fname">Barcode:</label>
+      <input type="text" id="fname" name="fname">
 
+      <button type="submit">check</button>
+    </form>
+
+   <br>
+    <div>Consumable List:
+      <button onclick="showCL()">show</button>
+      <button onclick="hideCL()">hide</button>
+      <iframe style="display:none" id="CL" width="100%" height="2000px"
+      src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSXNYCtKe8Nssh8iQBRKG-qSMWuivx_6n3FHUpOmiyot06khVXSrmK_s2FuZs4RHAggdHlXKkAmw-El/pubhtml?gid=696274173&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
+    </div>
+    <br>
+    <div>Machinery List:
+      <button onclick="showML()">show</button>
+      <button onclick="hideML()">hide</button>
+      <iframe style="display:none" id="ML" width="100%" height="2000px"
+      src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSXNYCtKe8Nssh8iQBRKG-qSMWuivx_6n3FHUpOmiyot06khVXSrmK_s2FuZs4RHAggdHlXKkAmw-El/pubhtml?gid=2033440338&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
+    </div>
+    <br>
+    <div>Spare Part List:
+      <button onclick="showSL()">show</button>
+      <button onclick="hideSL()">hide</button>
+      <iframe style="display:none" id="SL" width="100%" height="2000px"
+      src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSXNYCtKe8Nssh8iQBRKG-qSMWuivx_6n3FHUpOmiyot06khVXSrmK_s2FuZs4RHAggdHlXKkAmw-El/pubhtml?gid=2129636137&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
+    </div>
 </body>
+
+<script>
+  function showCL() {
+    var iframe = document.getElementById("CL");
+    var elmnt = iframe;
+    elmnt.style.display = "block";
+  };
+  function hideCL() {
+    var iframe = document.getElementById("CL");
+    var elmnt = iframe;
+    elmnt.style.display = "none";
+  }
+  function showML() {
+    var iframe = document.getElementById("ML");
+    var elmnt = iframe;
+    elmnt.style.display = "block";
+  };
+  function hideML() {
+    var iframe = document.getElementById("ML");
+    var elmnt = iframe;
+    elmnt.style.display = "none";
+  }
+  function showSL() {
+    var iframe = document.getElementById("SL");
+    var elmnt = iframe;
+    elmnt.style.display = "block";
+  };
+  function hideSL() {
+    var iframe = document.getElementById("SL");
+    var elmnt = iframe;
+    elmnt.style.display = "none";
+  }
+</script>
+
 <% include partials/script %>
+
 </html>
