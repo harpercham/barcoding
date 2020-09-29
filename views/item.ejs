@@ -1,54 +1,78 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<style>
-.card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  max-width: 300px;
-  margin: auto;
-  text-align: center;
-  font-family: arial;
-}
+  <style>
+    .card {
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      max-width: 300px;
+      margin: auto;
+      text-align: center;
+      font-family: arial;
+    }
 
-.price {
-  color: grey;
-  font-size: 22px;
-}
+    .price {
+      color: grey;
+      font-size: 22px;
+    }
 
-.card button {
-  border: none;
-  outline: 0;
-  padding: 12px;
-  color: white;
-  background-color: #000;
-  text-align: center;
-  cursor: pointer;
-  width: 100%;
-  font-size: 18px;
-}
+    .card button {
+      border: none;
+      outline: 0;
+      padding: 12px;
+      color: white;
+      background-color: #000;
+      text-align: center;
+      cursor: pointer;
+      width: 100%;
+      font-size: 18px;
+    }
 
-.card button:hover {
-  opacity: 0.7;
-}
-</style>
+    .card button:hover {
+      opacity: 0.7;
+    }
+  </style>
 </head>
+
 <body>
 
-<h2 style="text-align:center">Item</h2>
+  <h2 style="text-align:center">Item</h2>
 
-<div class="card">
-  <img src=<%= rows[0][0] %> style="width:100%">
-      <p>barcode:<%= rows[0][1] %></p>
-      <p>item:<%= rows[0][2] %></p>
-      <p>location:<%= rows[0][3] %></p>
-      <p>stock:<%= rows[0][4] %></p>
+  <div class="card">
+    <img src=<%= rows[0][0] %> style="width:100%">
+    <p>barcode:<%= rows[0][1] %></p>
+    <p>item:<%= rows[0][2] %></p>
+    <p>location:<%= rows[0][3] %></p>
+    <p>stock:<%= rows[0][4] %></p>
 
-</div>
+    <form action='/request' method='post' id="requestform">
+      <input type="hidden" value=<%= rows[0][1] %> name="barcode">
+      <input type="hidden" value=<%= rows[0][2] %> name="item">
+
+      <label for="project">Project:</label>
+      <select name="project" id="project" required>
+        <% for(var i=0; i<projects.length; i++) {%>
+        <option><%= projects[i]%></option>
+        <% } %>
+      </select><br><br>
+
+      <label for="quantity">Quantity:</label>
+      <input type="text" id="quantity" name="quantity" required><br><br>
+
+      <label for="requestor">Requestor:</label>
+      <input type="text" id="requestor" name="requestor" required><br><br>
+
+      <label for="start">Delivery Date:</label>
+      <input type="date" id="deliveryDate" name="deliveryDate" required ><br><br>
+
+      <input type="checkbox" id="urgent" name="urgent" value="urgent">
+      <label for="urgent" style="color:red"> urgent</label><br><br>
+
+      <button onclick="alert('submit successfully')" style="background-color: #4CAF50;color:white"
+        type="submit">request</button>
+    </form>
+  </div>
 
 </body>
+
 </html>
-
-
-
-
-

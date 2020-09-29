@@ -8,32 +8,34 @@
 <body>
 
   <div class="container-fluid bg-3 text-center">
-    <h3>Item Check</h3><br>
+    <h3>Inventory System (driver)</h3><br>
     <form action='/check' method='post' id="checkform">
-      <label for="fname">Barcode:</label>
-      <input type="text" id="fname" name="fname">
-
-      <button type="submit">check</button>
-    </form>
+      <label for="barcode">Barcode:</label>
+      <input type="text" id="barcode" name="barcode">
+      <button style="background-color: #4CAF50;color:white" type="submit">check</button>
+      <button style="background-color: red;color:white" type="button" onclick="window.location=('https://forms.gle/6LZRkdZtn3GeDdEM7')">order</button>
+  </form>
 
    <br>
+
+   
     <div>Consumable List:
-      <button onclick="showCL()">show</button>
-      <button onclick="hideCL()">hide</button>
+      <button style="color:rgb(10, 108, 126)"  onclick="showCL()">show</button>
+      <button style="color:rgb(10, 108, 126)"  onclick="hideCL()">hide</button>
       <iframe style="display:none" id="CL" width="100%" height="2000px"
-      src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSXNYCtKe8Nssh8iQBRKG-qSMWuivx_6n3FHUpOmiyot06khVXSrmK_s2FuZs4RHAggdHlXKkAmw-El/pubhtml?gid=696274173&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
+      src="http://gcesg.myqnapcloud.com/WordPress/items-order/"></iframe>
     </div>
     <br>
     <div>Machinery List:
-      <button onclick="showML()">show</button>
-      <button onclick="hideML()">hide</button>
+      <button style="color:rgb(10, 108, 126)"  onclick="showML()">show</button>
+      <button style="color:rgb(10, 108, 126)" onclick="hideML()">hide</button>
       <iframe style="display:none" id="ML" width="100%" height="2000px"
       src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSXNYCtKe8Nssh8iQBRKG-qSMWuivx_6n3FHUpOmiyot06khVXSrmK_s2FuZs4RHAggdHlXKkAmw-El/pubhtml?gid=2033440338&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
     </div>
     <br>
     <div>Spare Part List:
-      <button onclick="showSL()">show</button>
-      <button onclick="hideSL()">hide</button>
+      <button style="color:rgb(10, 108, 126)" onclick="showSL()">show</button>
+      <button style="color:rgb(10, 108, 126)" onclick="hideSL()">hide</button>
       <iframe style="display:none" id="SL" width="100%" height="2000px"
       src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSXNYCtKe8Nssh8iQBRKG-qSMWuivx_6n3FHUpOmiyot06khVXSrmK_s2FuZs4RHAggdHlXKkAmw-El/pubhtml?gid=2129636137&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
     </div>
