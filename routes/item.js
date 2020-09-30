@@ -139,7 +139,7 @@ function request(auth) {
   };
   sheets.spreadsheets.values.append({
     spreadsheetId: '12CX-tnVCxut1ZaplzHTi5-gIeEkO5asbb4C6LKh93dg',
-    range: 'operation!A:I',
+    range: 'request!A:F',
     valueInputOption: 'RAW',
     resource,
   }, (err, res) => {
